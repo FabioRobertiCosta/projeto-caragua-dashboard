@@ -1,224 +1,159 @@
-/* ==========================================================================
-   VARIÁVEIS DE DESIGN SYSTEM (Cores Oficiais de Caraguatatuba)
-   ========================================================================== */
+/* VARIÁVEIS CORPORATIVAS EM DARK MODE */
 :root {
-    --azul-principal: #0a467f;
-    --azul-escuro: #062e56;
-    --dourado: #f5c618;
-    --branco: #ffffff;
-    --cinza-claro: #f4f6f9;
-    --texto-dark: #1f2937;
-    --verde-sucesso: #10b981;
-    --transicao: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --bg-fundo: #0f172a;        /* Fundo ultra escuro */
+    --bg-cards: #1e293b;        /* Fundo dos cards cinza-azulado */
+    --texto-principal: #f8fafc; /* Texto principal quase branco */
+    --texto-mutado: #9ca3af;    /* Texto secundário cinza claro */
+    --azul-principal: #3b82f6;  /* Azul neon para links e destaques */
+    --azul-secundario: #38bdf8; /* Azul claro para títulos */
+}
+
+/* CONFIGURAÇÃO BASE */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
+    background-color: var(--bg-fundo);
+    color: var(--texto-principal);
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--cinza-claro);
-    color: var(--texto-dark);
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
-/* Acessibilidade: Navegação segura via teclado */
-*:focus-visible {
-    outline: 3px solid var(--dourado);
-    outline-offset: 2px;
-}
-
-/* ==========================================================================
-   ANIMAÇÕES E MOVIMENTO (Intersection Observer Targets)
-   ========================================================================== */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: var(--transicao);
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ==========================================================================
-   HERO / CABEÇALHO DO PAINEL
-   ========================================================================== */
+/* HERO HEADER TRABALHADO COM DEGRADE ESCURO */
 .hero {
-    background: linear-gradient(135deg, var(--azul-principal), var(--azul-escuro));
-    color: var(--branco);
-    padding: 60px 20px;
     text-align: center;
-    position: relative;
-    border-bottom: 6px solid var(--dourado);
+    padding: 40px 20px;
+    background: linear-gradient(180deg, #1e3a8a 0%, var(--bg-fundo) 100%);
+    border-bottom: 1px solid #334155;
 }
 
 .hero h1 {
     font-size: 2rem;
     font-weight: 800;
     margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: -0.5px;
+    color: #ffffff;
 }
 
 .hero p {
-    font-size: 1.1rem;
-    color: var(--branco);
-    opacity: 0.9;
+    font-size: 0.95rem;
+    color: var(--texto-mutado);
     max-width: 600px;
-    margin: 0 auto 25px auto;
+    margin: 0 auto 15px auto;
 }
 
 .badge-total {
-    background-color: var(--dourado);
-    color: var(--azul-escuro);
-    padding: 8px 16px;
-    border-radius: 50px;
-    font-weight: 700;
     display: inline-block;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
-/* ==========================================================================
-   CONTAINER E CARDS DE MÉTRICAS
-   ========================================================================== */
 .container {
-    padding: 30px 20px;
     max-width: 800px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .section-title {
-    font-size: 1.4rem;
-    color: var(--azul-principal);
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--azul-secundario);
     margin-bottom: 20px;
-    border-left: 5px solid var(--azul-principal);
-    padding-left: 10px;
-    font-weight: 700;
 }
 
+/* CARDS RESPONSIVOS E CLICÁVEIS */
 .card {
-    background-color: var(--branco);
-    border-radius: 12px;
+    background-color: var(--bg-cards);
     padding: 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    border-top: 4px solid var(--azul-principal);
-    transition: var(--transicao);
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(6, 46, 86, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    margin-bottom: 15px;
+    border: 1px solid #334155;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
 .card-header-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .card-title {
     font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--azul-escuro);
+    font-weight: 600;
+    color: #ffffff;
 }
 
 .percentage {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: 800;
-    color: var(--verde-sucesso);
+    color: var(--azul-secundario);
 }
 
-/* Barras de Rolagem Dinâmicas */
+/* BARRAS DE PROGRESSO */
 .progress-bg {
-    background-color: #e5e7eb;
-    border-radius: 8px;
-    height: 12px;
+    background-color: #334155;
+    height: 8px;
+    border-radius: 4px;
     width: 100%;
+    margin-bottom: 12px;
     overflow: hidden;
-    margin-bottom: 15px;
 }
 
 .progress-bar {
-    background: linear-gradient(90deg, var(--azul-principal), var(--verde-sucesso));
+    background: linear-gradient(90deg, #2563eb, #38bdf8);
     height: 100%;
-    width: 0; /* Preenchido dinamicamente via JS */
-    transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1);
+    border-radius: 4px;
 }
 
-.details-list {
-    list-style: none;
-    font-size: 0.95rem;
+/* TEXTOS INTERNOS DOS CARDS */
+.card p {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    text-align: justify;
 }
 
-.details-list li {
-    margin-bottom: 8px;
-    padding-left: 20px;
-    position: relative;
-}
-
-.details-list li::before {
-    content: "➔";
-    position: absolute;
-    left: 0;
-    color: var(--azul-principal);
-}
-
-/* Links de Corroboração Técnica */
+/* BOTÃO DE VOLTAR / LINKS */
 .btn-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--cinza-claro);
-    color: var(--azul-principal);
+    display: inline-block;
+    background-color: #2563eb;
+    color: #ffffff;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border-radius: 6px;
-    font-size: 0.85rem;
     font-weight: 600;
-    margin-top: 12px;
-    width: 100%;
-    border: 1px solid rgba(10, 70, 127, 0.2);
-    transition: var(--transicao);
+    font-size: 0.9rem;
+    margin-top: 15px;
+    text-align: center;
+    transition: background-color 0.2s;
 }
 
 .btn-link:hover {
-    background-color: var(--azul-principal);
-    color: var(--branco);
+    background-color: #1d4ed8;
 }
 
-/* ==========================================================================
-   DIRETRIZ DE FECHAMENTO (FOOTER)
-   ========================================================================== */
 .footer-note {
-    background-color: var(--azul-escuro);
-    color: var(--branco);
-    padding: 25px 20px;
     text-align: center;
-    border-radius: 12px;
-    margin-top: 40px;
-    border-left: 6px solid var(--dourado);
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: var(--texto-mutado);
 }
 
-.footer-note p {
-    font-size: 0.95rem;
-    font-style: italic;
-}
-
-/* ==========================================================================
-   MEDIA QUERIES (Mobile First / Otimização para Celular)
-   ========================================================================== */
-@media (max-width: 480px) {
-    .hero h1 { font-size: 1.6rem; }
-    .card-header-flex { flex-direction: column; align-items: flex-start; gap: 5px; }
-    .percentage { font-size: 1.4rem; }
-}
-
-/* Ajuste de alinhamento executivo para blocos de texto */
-.card p {
-    text-align: justify;
-    text-justify: inter-word; /* Melhora a distribuição do espaçamento em navegadores mobile */
-    margin-bottom: 20px;      /* Garante o espaçamento correto entre parágrafos */
+/* 🖥️ COMPORTAMENTO PARA PC (HOVER E CLIQUE) */
+@media (min-width: 768px) {
+    .card:hover {
+        transform: translateY(-2px);
+        background-color: #24334d;
+        cursor: pointer;
+    }
 }
