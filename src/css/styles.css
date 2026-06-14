@@ -1,0 +1,224 @@
+/* ==========================================================================
+   VARIÁVEIS DE DESIGN SYSTEM (Cores Oficiais de Caraguatatuba)
+   ========================================================================== */
+:root {
+    --azul-principal: #0a467f;
+    --azul-escuro: #062e56;
+    --dourado: #f5c618;
+    --branco: #ffffff;
+    --cinza-claro: #f4f6f9;
+    --texto-dark: #1f2937;
+    --verde-sucesso: #10b981;
+    --transicao: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--cinza-claro);
+    color: var(--texto-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Acessibilidade: Navegação segura via teclado */
+*:focus-visible {
+    outline: 3px solid var(--dourado);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   ANIMAÇÕES E MOVIMENTO (Intersection Observer Targets)
+   ========================================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: var(--transicao);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   HERO / CABEÇALHO DO PAINEL
+   ========================================================================== */
+.hero {
+    background: linear-gradient(135deg, var(--azul-principal), var(--azul-escuro));
+    color: var(--branco);
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    border-bottom: 6px solid var(--dourado);
+}
+
+.hero h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--branco);
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto 25px auto;
+}
+
+.badge-total {
+    background-color: var(--dourado);
+    color: var(--azul-escuro);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 700;
+    display: inline-block;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ==========================================================================
+   CONTAINER E CARDS DE MÉTRICAS
+   ========================================================================== */
+.container {
+    padding: 30px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    color: var(--azul-principal);
+    margin-bottom: 20px;
+    border-left: 5px solid var(--azul-principal);
+    padding-left: 10px;
+    font-weight: 700;
+}
+
+.card {
+    background-color: var(--branco);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--azul-principal);
+    transition: var(--transicao);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(6, 46, 86, 0.1);
+}
+
+.card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--azul-escuro);
+}
+
+.percentage {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--verde-sucesso);
+}
+
+/* Barras de Rolagem Dinâmicas */
+.progress-bg {
+    background-color: #e5e7eb;
+    border-radius: 8px;
+    height: 12px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, var(--azul-principal), var(--verde-sucesso));
+    height: 100%;
+    width: 0; /* Preenchido dinamicamente via JS */
+    transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1);
+}
+
+.details-list {
+    list-style: none;
+    font-size: 0.95rem;
+}
+
+.details-list li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.details-list li::before {
+    content: "➔";
+    position: absolute;
+    left: 0;
+    color: var(--azul-principal);
+}
+
+/* Links de Corroboração Técnica */
+.btn-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cinza-claro);
+    color: var(--azul-principal);
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 12px;
+    width: 100%;
+    border: 1px solid rgba(10, 70, 127, 0.2);
+    transition: var(--transicao);
+}
+
+.btn-link:hover {
+    background-color: var(--azul-principal);
+    color: var(--branco);
+}
+
+/* ==========================================================================
+   DIRETRIZ DE FECHAMENTO (FOOTER)
+   ========================================================================== */
+.footer-note {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    padding: 25px 20px;
+    text-align: center;
+    border-radius: 12px;
+    margin-top: 40px;
+    border-left: 6px solid var(--dourado);
+}
+
+.footer-note p {
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (Mobile First / Otimização para Celular)
+   ========================================================================== */
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .card-header-flex { flex-direction: column; align-items: flex-start; gap: 5px; }
+    .percentage { font-size: 1.4rem; }
+}
+
+/* Ajuste de alinhamento executivo para blocos de texto */
+.card p {
+    text-align: justify;
+    text-justify: inter-word; /* Melhora a distribuição do espaçamento em navegadores mobile */
+    margin-bottom: 20px;      /* Garante o espaçamento correto entre parágrafos */
+}
